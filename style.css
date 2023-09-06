@@ -11,6 +11,11 @@ SHARED CSS
 
 html {
     font-family: 'Dosis', sans-serif;
+    font-size: 16px;
+}
+
+a {
+    color: #71d99e
 }
 /*
 ===========================
@@ -38,8 +43,7 @@ CSS OUTER GRID STYLES
 }
 
 header{
-    grid-area: alias-header;
-    background-color: blue;
+    grid-area: alias-header; 
 }
 
 nav{
@@ -86,6 +90,54 @@ footer{
 }
 /*
 ===========================
+HEADER styles
+===========================
+*/
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.left-header{
+    display: flex;
+    align-items: center;
+
+}
+
+.fa-bars {
+    margin-right: 10px;
+}
+
+.fa-bars:hover {
+    cursor: pointer;
+    opacity: 0.8;
+    
+}
+
+.right-header{
+    display: flex;
+    
+}
+
+.header-link{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 10px;
+    
+}
+.header-link i {
+     font-size: 0.8rem; /*half of html root font size */
+}
+header, footer {
+    background-color: #1e4040;
+    color: #71d99e
+}
+
+/*
+===========================
 BREAKPOINTS media query rules
 ===========================
 */
@@ -115,5 +167,27 @@ BREAKPOINTS media query rules
 }
 
 @media (min-width: 1400px){
+
+    .outer-grid {
+        grid-template-columns: 1fr 950px 1fr;
+        grid-template-areas: 
+            "alias-header alias-header alias-header"
+            "alias-nav alias-innergrid alias-innergrid";
+    }
+    header {
+        display: grid;
+        grid-template-columns: 1fr 950px 1fr;
+        grid-template-areas: "alias-lh . alias-rh"; /*since ther is only one row => one quotation*/
+    }
+
+    .left-header{
+        grid-area: alias-lh;
+        justify-self: end;
+    }
+
+    .right-header{
+        grid-area: alias-rh;
+        justify-self: start;
+    }
 
 }
